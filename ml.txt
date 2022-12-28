@@ -1,0 +1,170 @@
+#----------------------------##################-------------------------------------#
+# multiple variable linear regration
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+df=pd.read_excel('/content/drive/MyDrive/car.xlsx')
+df
+X=df[['milege','age']]
+y=df['sell']
+from sklearn import linear_model
+
+reg=linear_model.LinearRegression()
+
+reg.fit(X,y)
+reg.coef_
+reg.intercept_
+predicted=reg.predict([['6000','3']])
+print(predicted)
+
+
+
+#----------------------------##################-------------------------------------#
+# train and test split
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+import numpy as np
+df=pd.read_excel('/content/drive/MyDrive/linear.xlsx')
+df
+X=df[['area']]
+y=df['price']
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=3)
+print(f"Train Data,{X_train.shape} {y_train.shape}")
+print(f"Test Data,{X_test.shape} {y_test.shape}")
+from sklearn import linear_model
+clf=linear_model.LinearRegression()
+clf.fit(X_train,y_train)
+clf.predict(X_test)
+import matplotlib.pyplot as plt
+%matplotlib inline
+plt.scatter(X_train,y_train,color='red')
+plt.plot(X_train,clf.predict(X_train),color='blue')
+plt.scatter(X_test,y_test,color='red')
+plt.plot(X_train,clf.predict(X_train),color='blue')
+
+
+#----------------------------##################-------------------------------------#
+# Randomforest
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+import numpy as np
+df=pd.read_excel('/content/drive/MyDrive/titanic.xls')
+df
+from sklearn.preprocessing import LabelEncoder
+le=LabelEncoder()
+df['sex']=le.fit_transform(df['sex'])
+df['embarked']=le.fit_transform(df['embarked'])
+df
+X=df.drop('survived',axis=1)
+y=df['survived']
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
+from sklearn.ensemble import RandomForestClassifier
+clf=RandomForestClassifier(n_estimators=10)
+clf.fit(X_train,y_train)
+
+#----------------------------##################-------------------------------------#
+# suport vector action
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+from sklearn.svm import SVC
+df=pd.read_csv('/content/drive/MyDrive/SVM data.csv')
+df
+X=df.drop('Species',axis='columns')
+y=df['Species']
+X=df.drop('Species',axis='columns')
+y=df['Species']
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
+model=SVC(kernel='linear',C=1)
+model.fit(X_train,y_train)
+model.score(X_test,y_test)
+model.predict(X_test)
+
+
+#----------------------------##################-------------------------------------#
+# Single variable linear regration
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import linear_model
+df=pd.read_excel('/content/drive/MyDrive/linear.xlsx')
+df
+reg=linear_model.LinearRegression()
+reg.fit(df[['area']],df.price)
+y_predict=reg.predict(df[['area']])
+
+for each in y_predict:
+  print(each)
+%matplotlib inline
+plt.xlabel('Area')
+plt.ylabel('Price')
+plt.title('Price according Area in Pune')
+plt.scatter(df.area,df.price,color='blue',marker='+')
+plt.plot(df.area,reg.predict(df[['area']]),color='red')
+
+
+#----------------------------##################-------------------------------------#
+# decision tree
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+import numpy as np
+from sklearn import tree
+from sklearn.tree import DecisionTreeClassifier
+import matplotlib.pyplot as plt
+df=pd.read_csv('/content/drive/MyDrive/decisiontree.csv')
+df
+r={'UK':0,'USA':1,'N':2}
+df['Nationality']=df['Nationality'].map(r)
+df['Nationality']
+a={'YES':1,'NO':0}
+df['Go']=df['Go'].map(a)
+df
+features=['Age','Experience','Rank','Nationality']
+x=df[features]
+y=df['Go']
+
+dtree=DecisionTreeClassifier()
+dtree=dtree.fit(x,y)
+tree.plot_tree(dtree,feature_names=features)
+dtree.predict([['43','21','8','1']])
+
+
+#----------------------------##################-------------------------------------#
+# KNN.   And   Performance matrix
+#----------------------------##################-------------------------------------#
+
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv('/content/drive/MyDrive/KNN Data set.csv')
+from sklearn.preprocessing import LabelEncoder
+le=LabelEncoder()
+df['Gender']=le.fit_transform(df['Gender'])
+df
+data=df.values
+X,y=data[:,:-1],data[:,-1]
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.3)
+from sklearn.neighbors import KNeighborsClassifier
+model=KNeighborsClassifier()
+model.fit(X_train,y_train)
+y_predict=model.predict(X_test)
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import plot_confusion_matrix
+confusion_matrix(y_predict,y_test)
+plot_confusion_matrix(model,X_test,y_test)
+from sklearn.metrics import accuracy_score
+accuracy_score(y_predict,y_test)
+
+
+
+

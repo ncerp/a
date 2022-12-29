@@ -1,0 +1,198 @@
+Experiment No - 01
+Problem Statement:  Python Libraries for Data Science: 
+a. Pandas Library b. Numpy Library c. Scikit Learn Library d. Matplotlib.
+Practical Related Theory.
+Write down each Library functions Description in brief.
+a) Pandas Library: 
+Read Data: We can read data in pandas data frame as read_csv(). Two most used data read formats are csv and excel. If we are reading data in excel format, we can also give sheet names as follows. There are other less used options of other file types too.
+ Head and Tail : To see the data frame we can use df.head(). Head returns the first rows, if no input is given it will always show above 5 rows.
+Shape, Size and Info: Two most basic functions after reading data is to know the number of rows and columns, and to know the datatype of variables. We can use df.shape, it gives a total number of rows and then columns. df.size() returns the number of rows times number of columns in the data frame. We can also use df.info(), from that we get different information such as rows from RangeIndex, Data columns and then data type of each column. It also includes the information of non-null counts.
+Program : 
+df.shape
+df.info()
+Isna : to get the total number of null values in a data
+
+Describe: to understand basic statistics of variables we can use df.describe().It will give you count, mean, standard deviation, and also 5 number summary.
+
+Nunique: To get the total unique values of variables, we can use df.nunique(). It will give all the unique values a variable contains.
+Value Counts: to get the unique values of a single variable,
+
+b) Numpy Library :
+NumPy is a Python library used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices
+1. Import NumPy : once NumPy is installed, import it in your applications by adding the import keyword:
+2. To find verson : 
+import numpy as np
+print(np.__version__)
+ Output : 
+1.16.2
+Functions : 
+min and max:  used to find the minimum and maximum value of a NumPy array
+mean:    used to find the mean value of the NumPy array
+std:  used to find the standard deviation of the NumPy array
+median:  used to find the median of a NumPy array
+percentile:  used to find the percentile in a NumPy array
+stack: used to join the sequence of an array along a new axis
+vstack: used to join the sequence of an array along a new axis vertically
+hstack: used to join the sequence of an array along a new axis horizontally
+sort: used to get a sorted array.
+c) Scikit Library Functions : 
+It provides a selection of efficient tools for machine learning and statistical modeling including classification, regression, clustering and dimensionality reduction via a consistence interface in Python
+d) Matplotlib:
+ Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. Matplotlib makes easy things easy and hard things possible.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Experiment No - 02
+Problem Statement:  Evaluation Metrics a. Accuracy b. Precision c. Recall d. F1-Score
+Practical Related Theory.
+Write down description about each Evaluation Metrics in brief 
+Accuracy
+The accuracy of a classifier is calculated as the ratio of the total number of correctly predicted samples by the total number of samples.
+
+Confusion Matrix
+A confusion matrix is an N dimensional square matrix, where N represents total number of target classes or categories. Confusion matrix can be used to evaluate a classifier whenever the data set is imbalanced. Let us consider a binary classification problem i.e. the number of target classes are 2. A typical confusion matrix with two target classes (say “Yes” and “No”) looks like:
+
+  
+  
+ 
+ 
+ 
+ Experiment No - 03
+Problem Statement:  Train and Test Sets by Splitting Learn and Test Data.
+Here we will discuss how to split a dataset into Train and Test sets in Python. The train-test split is used to estimate the performance of machine learning algorithms that are applicable for prediction-based Algorithms/Applications. This method is a fast and easy procedure to perform such that we can compare our own machine learning model results to machine results. By default, the Test set is split into 30 % of actual data and the training set is split into 70% of the actual data.
+We need to split a dataset into train and test sets to evaluate how well our machine learning model performs. The train set is used to fit the model, and the statistics of the train set are known. The second set is called the test data set, this set is solely used for predictions.
+Dataset Splitting:
+Scikit-learn alias sklearn is the most useful and robust library for machine learning in Python. The scikit-learn library provides us with the model_selection module in which we have the splitter function train_test_split().
+
+
+
+
+
+
+
+
+Experiment No - 04
+Problem Statement Linear Regression: Simple Linear Regression
+Simple Linear Regression is a type of Regression algorithms that models the relationship between a dependent variable and a single independent variable. The relationship shown by a Simple Linear Regression model is linear or a sloped straight line, hence it is called Simple Linear Regression.
+
+The key point in Simple Linear Regression is that the dependent variable must be a continuous/real value. However, the independent variable can be measured on continuous or categorical values.
+
+Simple Linear regression algorithm has mainly two objectives:
+
+Model the relationship between the two variables. Such as the relationship between Income and expenditure, experience and Salary, etc.
+Forecasting new observations. Such as Weather forecasting according to temperature, Revenue of a company according to the investments in a year, etc.
+
+
+
+
+
+
+
+Experiment No - 05
+Problem Statement:  Multivariable Regression
+Most of the statistically analysed data does not necessarily have one response variable and one explanatory variable. In most cases, the number of variables can vary depending on the study. To measure the relationships between these multidimensional variables, multivariate regression is used.
+
+Multivariate regression is a technique used to measure the degree to which the various independent variable and various dependent variables are linearly related to each other. The relation is said to be linear due to the correlation between the variables. Once the multivariate regression is applied to the dataset, this method is then used to predict the behaviour of the response variable based on its corresponding predictor variables. 
+
+Multivariate regression is commonly used as a supervised algorithm in machine learning, a model to predict the behaviour of dependent variables and multiple independent variables.
+
+
+
+
+
+
+
+
+Experiment No - 06
+Decision Tree Algorithm implementation 
+A decision tree is a tree-based supervised learning method used to predict the output of a target variable. Supervised learning uses labeled data (data with known output variables) to make predictions with the help of regression and classification algorithms. Supervised learning algorithms act as a supervisor for training a model with a defined output variable. It learns from simple decision rules using the various data features. Decision trees in Python can be used to solve both classification and regression problems—they are frequently used in determining odds. 
+
+The following is an example of a simple decision tree used to classify different animals based on their features. We will be using the color and height of the animals as input features.
+
+
+
+
+
+
+
+Experiment No - 07
+Problem Statement:  Random Forest Algorithm implementation. Practical Related Theory.
+ Random Forest is a popular machine learning algorithm that belongs to the supervised learning technique. It can be used for both Classification and Regression problems in ML. It is based on the concept of ensemble learning, which is a process of combining multiple classifiers to solve a complex problem and to improve the performance of the model.
+
+As the name suggests, "Random Forest is a classifier that contains a number of decision trees on various subsets of the given dataset and takes the average to improve the predictive accuracy of that dataset." Instead of relying on one decision tree, the random forest takes the prediction from each tree and based on the majority votes of predictions, and it predicts the final output.
+
+The greater number of trees in the forest leads to higher accuracy and prevents the problem of overfitting.
+
+
+
+
+
+
+
+
+
+
+Experiment No - 08
+Problem Statement:  Naive Bayes Classification Algorithm implementation.
+Naive Bayes Classifier is a very popular supervised machine learning algorithm based on Bayes’ theorem. It is simple but very powerful algorithm which works well with large datasets and sparse matrices, like pre-processed text data which creates thousands of vectors depending on the number of words in a dictionary. It works really well with text data projects like sentiment data analysis, performs good with document categorization projects, and also it is great in predicting categorical data in projects such as email spam classification.
+
+It is used to solve many different problem statements, and it is quite fast in training a model since Naive Bayes classifier completely works on probability, so the conversion happens quickly.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Experiment No - 09
+Problem Statement:  K-Nearest Neighbor Algorithm implementation 
+k-nearest neighbor algorithm:
+This algorithm is used to solve the classification model problems. K-nearest neighbor or K-NN algorithm basically creates an imaginary boundary to classify the data. When new data points come in, the algorithm will try to predict that to the nearest of the boundary line.
+
+Machine-Learning-Course
+
+Therefore, larger k value means smother curves of separation resulting in less complex models. Whereas, smaller k value tends to overfit the data and resulting in complex models.
+
+Note: It’s very important to have the right k-value when analyzing the dataset to avoid overfitting and underfitting of the dataset.
+
+Using the k-nearest neighbor algorithm we fit the historical data (or train the model) and predict the future. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Experiment No - 10
+Problem Statement:  SVM Algorithm implementation.
+
+Support Vector Machine(SVM) is a supervised machine learning algorithm used for both classification and regression. Though we say regression problems as well its best suited for classification. The objective of SVM algorithm is to find a hyperplane in an N-dimensional space that distinctly classifies the data points. The dimension of the hyperplane depends upon the number of features. If the number of input features is two, then the hyperplane is just a line. If the number of input features is three, then the hyperplane becomes a 2-D plane. It becomes difficult to imagine when the number of features exceeds three. 
+
+Let’s consider two independent variables x1, x2 and one dependent variable which is either
+
+
+Advantages of SVM:
+
+Effective in high dimensional cases
+Its memory efficient as it uses a subset of training points in the decision function called support vectors
+Different kernel functions can be specified for the decision functions and its possible to specify custom kernels
+

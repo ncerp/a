@@ -1,0 +1,171 @@
+#---------------------------#################---------------------------#
+#EXP 1
+# problem on arrays
+#---------------------------#################---------------------------#
+
+a = [10,20,30,40,50]
+print(a[0])
+print(a[1])
+print(a[2])
+print(a[3])
+print(a[4])
+
+
+#---------------------------#################---------------------------#
+# Prininting the array using for loops 
+#---------------------------#################---------------------------#
+for i in a:
+    print(i)
+    
+    
+    
+    
+    
+    
+    
+#---------------------------#################---------------------------#    
+#EXP 2 
+#Problem on Matrix
+#---------------------------#################---------------------------#
+
+X = [[1, 2, 3],
+     [4, 5, 6],
+     [7, 8, 9]]
+
+Y = [[11, 12, 13],
+     [14, 15, 16],
+     [17, 18, 19]]
+
+result = [[0, 0, 0],
+          [0, 0, 0],
+          [0, 0, 0]]
+
+for i in range(len(X)):
+    for j in range(len(Y[0])):
+        for k in range(len(Y)):
+            result[i][j] = result[i][j] +  X[i][k] * Y[j][k]
+for r in result:
+    print(r)
+    
+    
+    
+    
+    
+    
+#---------------------------#################---------------------------#    
+#EXP 3
+#Problems on String
+#---------------------------#################---------------------------#
+
+# 1. Find the length
+def length_of_string(s):
+    return(len(s))
+
+s = "Avi"
+print(f"length of string is :{length_of_string(s)}" )
+
+# 2. String Concatenation
+s1 = 'Avinash'
+s2 = s1 +' Madhukar'
+s3 = s2 + ' Mundhe'
+s4 = s3
+print(s4)
+
+# 3. String Slicing
+s1 = "data "
+s2 = 'science'
+s3 = s1[2:]+s2[:]
+print(s3)
+
+# 4. Boolean 
+s1 = "Avi"
+s2 = "Avi"
+s3 = "Avinash"
+s1 == s3
+s1 == s2
+
+
+
+
+
+
+
+#---------------------------#################---------------------------#
+#Exp 4
+#1. Linear Search 
+#---------------------------#################---------------------------#
+
+#Problem Solution
+#1. Create a function linear_search that takes a list and key as arguemnts.
+#2. A loop iterates through the list and when an item matching the key is found, the corresponding index is returned.
+#3. If no such item is found, -1 is returned.
+
+# Linear Search
+def linear_search(alist, key):
+    for i in range(len(alist)):
+        if alist[i] == key:
+            return i
+    return -1
+ 
+ 
+alist = input('Enter the list of numbers: ')
+alist = alist.split()
+alist = [int(x) for x in alist]
+key = int(input('The number to search for: '))
+ 
+index = linear_search(alist, key)
+if index < 0:
+    print('{} was not found.'.format(key))
+else:
+    print('{} was found at index {}.'.format(key, index))
+
+
+
+
+
+
+#---------------------------#################---------------------------#
+#Binary Search
+#---------------------------#################---------------------------#
+
+
+def binary_search(arr, low, high, x):
+ 
+    # Check base case
+    if high >= low:
+ 
+        mid = (high + low) // 2
+ 
+        # If element is present at the middle itself
+        if arr[mid] == x:
+            return mid
+ 
+        # If element is smaller than mid, then it can only
+        # be present in left subarray
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
+ 
+        # Else the element can only be present in right subarray
+        else:
+            return binary_search(arr, mid + 1, high, x)
+ 
+    else:
+        # Element is not present in the array
+        return -1
+ 
+# Test array
+arr = [ 2, 3, 4, 10, 40 ]
+x = 10
+ 
+# Function call
+result = binary_search(arr, 0, len(arr)-1, x)
+ 
+if result != -1:
+    print("Element is present at index", str(result))
+else:
+    print("Element is not present in array")
+    
+    
+    
+    
+    
